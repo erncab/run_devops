@@ -24,6 +24,10 @@ namespace Shopping.Client.Controllers
             return View(ProductContext.Products);
         }
 
+        /// <summary>
+        /// Add comment to trigger build in Docker.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
