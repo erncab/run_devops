@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,12 @@ namespace Shopping.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient("ShoppingAPIClient", client =>
+            {
+                // Shopping.API url
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });
+
             services.AddControllersWithViews();
         }
 

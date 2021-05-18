@@ -26,6 +26,7 @@
 ###############################################################
 ### Pushing to GitHub repo to trigger build in Docker Hub repo.
 ### "CTRL + /" to comment/uncomment block.
+
 ###############################################################
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
