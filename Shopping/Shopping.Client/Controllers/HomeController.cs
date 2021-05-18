@@ -15,10 +15,6 @@ namespace Shopping.Client.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Add comment to trigger build in Docker.
-        /// </summary>
-        /// <returns></returns>
         public IActionResult Index()
         {
             return View(ProductContext.Products);
