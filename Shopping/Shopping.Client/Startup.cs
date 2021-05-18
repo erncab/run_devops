@@ -9,20 +9,21 @@ namespace Shopping.Client
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient("ShoppingAPIClient", client =>
             {
-                // Shopping.API url
-                client.BaseAddress = new Uri("http://localhost:5000/");
+                var url = _configuration["ShoppingApiUrl"];
+
+                client.BaseAddress = new Uri(url);
             });
 
             services.AddControllersWithViews();
